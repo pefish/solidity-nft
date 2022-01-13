@@ -25,12 +25,10 @@ contract Nft is Erc721Enumerable, Ownable {
     constructor(
         string memory _name,
         string memory _symbol,
-        string memory _baseURI,
         uint256 _maxSupply
     ) Erc721(_name, _symbol) {
         Ownable.__Ownable_init();
 
-        baseURI = _baseURI;
         maxSupply = _maxSupply;
     }
 
@@ -85,6 +83,14 @@ contract Nft is Erc721Enumerable, Ownable {
     function setCost(uint256 _newCost, uint256 _newWhitelistCost) public onlyOwner {
         cost = _newCost;
         whitelistCost = _newWhitelistCost;
+    }
+
+    function setBaseURI(string memory _baseURI) public onlyOwner {
+        baseURI = _baseURI;
+    }
+
+    function setMaxSupply(uint256 _maxSupply) public onlyOwner {
+        maxSupply = _maxSupply;
     }
 
     function setMaxMintNum(uint256 _newMaxMintNum) public onlyOwner {
