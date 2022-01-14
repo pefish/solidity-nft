@@ -18,7 +18,7 @@ contract Nft is Erc721Enumerable, Ownable {
     uint256 public cost = 0.06 ether;
     uint256 public whitelistCost = 0 ether;
     uint256 public maxSupply;
-    uint256 public maxMintNum = 20;
+    uint256 public maxMintNum = 1;
     bool public paused = true;
     address[] public whitelistedAddresses;
 
