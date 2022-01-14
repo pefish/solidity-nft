@@ -18,8 +18,7 @@ contract Nft is Erc721Enumerable, Ownable {
     uint256 public cost = 0.06 ether;
     uint256 public whitelistCost = 0 ether;
     uint256 public maxSupply;
-    uint256 public maxMintNum = 10;
-    uint256 public maxNumPerWallet = 1;
+    uint256 public maxMintNum = 20;
     bool public paused = true;
     address[] public whitelistedAddresses;
 
@@ -52,8 +51,6 @@ contract Nft is Erc721Enumerable, Ownable {
         for (uint256 i = 1; i <= _mintAmount; i++) {
             _safeMint(msg.sender, supply + i);
         }
-
-        require(balanceOf(msg.sender) <= maxNumPerWallet, "max num per wallet limit exceeded");
     }
 
     function isWhitelisted(address _user) public view returns (bool) {
